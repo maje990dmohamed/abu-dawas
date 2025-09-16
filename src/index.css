@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #036A47;
+  --secondary: #55a581;
+}
+
+.container {
+  @apply mx-auto px-3 md:px-10;
+}
