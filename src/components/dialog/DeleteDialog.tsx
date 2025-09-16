@@ -11,6 +11,7 @@ import { useState } from "react";
 import { db } from "../../firebase";
 import { toast } from "react-toastify";
 import Loader from "../common/Loader";
+import deleteICON from "../../assets/icons/deleteModel.svg"
 
 type DeleteDialogProps = {
   title: string;
@@ -79,7 +80,7 @@ const DeleteDialog = ({
       <DialogContent>
         <Box display="flex" gap={2}>
           <img
-            src="/src/assets/icons/deleteModel.svg"
+            src={deleteICON}
             alt="delete"
             width={60}
             height={60}
