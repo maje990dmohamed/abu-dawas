@@ -24,11 +24,11 @@ const useAddNewPerson = () => {
         job: "",
         issuePlace: "",
         certificateNumber: "",
-        programType: "",
-        programExpiry: "",
-        issueDate: "",
+        programType: "-",
+        programExpiry: "-",
+        issueDate: "-",
         firmName: "",
-        FirmLicenseNum: ""
+        FirmLicenseNum: "-"
 
     })
 
