@@ -1,10 +1,33 @@
-@import "tailwindcss";
-
-:root {
-  --primary: #036A47;
-  --secondary: #55a581;
+body {
+  direction: rtl;
 }
 
-.container {
-  @apply mx-auto px-3 md:px-10;
+:root {
+  --primary: #9C00C9;
+  --secondary: #5E0094;
+}
+
+@layer base {
+  img {
+    display: initial;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#certificateText {
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
