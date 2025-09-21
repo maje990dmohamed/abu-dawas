@@ -11,14 +11,13 @@ import CardUI from './components/cardUI'
 import PageLoading from '../../../components/common/PageLoading'
 import SelectMenu from '../../../components/common/inputs/SelectMenu'
 import { CgGenderMale } from 'react-icons/cg'
-// import CardSecondUI from './components/cardSecondUI'
-// import Dateee from "../../../assets/icons/Icons (1).svg";
 import Button from '../../../components/common/Button'
 import { MdDateRange } from 'react-icons/md'
 
 const ViewHealthInsurance = () => {
     const { formData, certificateRef, loading, genderOptions, handleOpenPDF } = useViewHealthInsurance();
-
+    console.log("data", formData);
+    
     if (loading)
         return <PageLoading />
 
