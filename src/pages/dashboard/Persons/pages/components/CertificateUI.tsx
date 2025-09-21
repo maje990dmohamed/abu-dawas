@@ -105,9 +105,11 @@ const CertificateUI = forwardRef<HTMLDivElement, CertificateUIProps>(
 
         {/* Certificate Details في صندوق */}
         <div style={{
-          border: '4px solid #666',
+          border: '4px solid #666', // here border bottom doesn't appear in the pdf if the name is 2 lines
           borderRadius: '15px',
           backgroundColor: '#ffffff',
+          position: 'relative',
+          minHeight: '750px'
         }}>
           {/* الجزء العلوي - بيانات الشهادة */}
           <div style={{
