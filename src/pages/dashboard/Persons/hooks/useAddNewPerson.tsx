@@ -27,7 +27,7 @@ const useAddNewPerson = () => {
         programType: "-",
         programExpiry: "-",
         issueDate: "-",
-        firmName: "",
+        firmName: "مجمع عيادات مستوصف الحياة فرع الرمال",
         FirmLicenseNum: "-"
 
     })
