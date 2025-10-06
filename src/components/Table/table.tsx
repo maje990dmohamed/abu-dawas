@@ -10,6 +10,7 @@ import Pagination from "../Pagenation/Pagination";
 import EmptyPage from "../common/EmptyPage";
 import PageLoading from "../common/PageLoading";
 import DeleteDialog from "../dialog/DeleteDialog";
+import Toggler from "../Toggler";
 
 type TableHeader = {
   label: string;
@@ -72,7 +73,7 @@ const Table: React.FC<TableProps> = ({
   isPagination = true,
   onEmail,
   filterDeletedData,
-  collectionName
+  collectionName,
 
 }) => {
   // const [selectedRow, setSelectedRow] = useState<any>({});
@@ -83,74 +84,13 @@ const Table: React.FC<TableProps> = ({
     if (propData) {
       setData(propData)
     }
-  }, [propData])
-  // const [isopen, setIsOpen] = useState(false);
-  // const [selectedItem, setSelectedItem] = useState<any>(null);
-
-  // const filterDeletedData = (selectedIDS:string[]) => { 
-  //   const newData = data.filter((item:PersonType) => !selectedIDS.includes(String(item.idNumber)));
-  //   setData(newData);
-  // }
+  }, [propData]);
 
   useEffect(() => {
     onSelectRows?.(selectedIds);
   }, [selectedIds]);
 
-  // const handleSelect = (id: number) => {
-  //   const currentIds = selectedIds ?? [];
-  //   const updatedIds = currentIds.includes(id)
-  //     ? currentIds.filter((item: any) => item !== id)
-  //     : [...currentIds, id];
-  //   setSelectedIds?.(updatedIds);
-  // };
-
   console.log("selected", selectedIds);
-  // const handleSelectAll = () => {
-  //   const allIds = data.map((row) => row.id);
-  //   const currentIds = selectedIds ?? [];
-
-  //   const isAllSelected = allIds.every((id) => currentIds.includes(id));
-  //   setSelectedIds?.(isAllSelected ? [] : allIds);
-  // };
-
-  // const handleDeleteClick = (item: any) => {
-  // setSelectedItem(item);
-  // setOpen(true);
-  // };
-
-  // const handleConfirmDelete = () => {
-  //   if (selectedItem) {
-  //     onDeleteConfirm?.([selectedItem.id]);
-  //     setOpen(false);
-  //     setIsOpen(true);
-  //   }
-  // };
-
-  // const CustomCheckbox = styled(Checkbox)(() => ({
-  //   padding: 0,
-  //   width: 20,
-  //   height: 20,
-  //   borderRadius: 6,
-  //   backgroundColor: "var(--checkBox-bg)",
-  //   border: "2px solid #0096FF",
-
-  //   "&.Mui-checked": {
-  //     backgroundColor: "var(--checkBox-bg)",
-  //     border: "2px solid #0096FF",
-  //     color: "#0096FF",
-  //   },
-  //   "&.Mui-focusVisible": {
-  //     outline: "none",
-  //     boxShadow: "none",
-  //   },
-  // }));
-
-  // const CheckIconOnly = (
-  //   <CheckIcon
-  //     className="font-medium text-4xl"
-  //     sx={{ fontSize: 16, color: "#0096FF", backgroundColor: "transparent" }}
-  //   />
-  // );
 
   const truncateText = (text: string, maxLength: number = 50) => {
     if (!text) return "";
@@ -195,7 +135,7 @@ const Table: React.FC<TableProps> = ({
                 </thead>
 
                 <tbody className="whitespace-nowrap  ">
-                  {data.length === 0  ? (
+                  {data.length === 0 ? (
                     <tr>
                       <td colSpan={headers.length + 2}>
                         <EmptyPage />
@@ -246,6 +186,10 @@ const Table: React.FC<TableProps> = ({
                                 ) : header.key === "gender" ? (
                                   <div className="flex justify-center items-center">
                                     {row.gender}
+                                  </div>
+                                ) : header.key === "seeQR" ? (
+                                  <div className="flex justify-center items-center">
+                                    <Toggler oldState={row?.preventScan} collectionName={collectionName} row={row} />
                                   </div>
                                 ) : header.key === "status" ? (
                                   <div className="flex justify-center items-center">

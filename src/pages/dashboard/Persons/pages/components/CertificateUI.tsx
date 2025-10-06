@@ -59,7 +59,7 @@ const CertificateUI = forwardRef<HTMLDivElement, CertificateUIProps>(
           gap: '3px'
         }}>
           {/* QR Code على اليسار */}
-          <div style={{
+          {!(data?.preventScan == true) && <div style={{
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-start',
@@ -72,7 +72,7 @@ const CertificateUI = forwardRef<HTMLDivElement, CertificateUIProps>(
                 level={"H"}
               />
             </div>
-          </div>
+          </div>}
 
           {/* الصورة على اليمين */}
           <div style={{ flex: '0 0 auto' }}>
