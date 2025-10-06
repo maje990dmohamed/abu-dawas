@@ -138,6 +138,7 @@ const IndexHealthInsurance = () => {
                                 { label: "تاريخ انتهاء البرنامج", key: "programExpiry" },
                                 { label: "المهنة", key: "job" },
                                 { label: "الصورة", key: "photoUrl" },
+                                { label: "منع مسح الكود", key: "seeQR" },
                             ]}
                             isView
                             // isDelete

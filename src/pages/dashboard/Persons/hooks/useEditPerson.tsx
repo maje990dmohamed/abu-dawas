@@ -99,43 +99,18 @@ const useEditPerson = () => {
         setErrors((prev: any) => ({ ...prev, [field]: "" })); // مسح الخطأ
     };
 
-    // دالة مساعدة لتحويل التاريخ الميلادي إلى هجري
-    // const convertToHijri = (gregorianDate: string) => {
-    //     if (!gregorianDate) return "";
-        
-    //     const oldDate = new Date(gregorianDate);
-    //     const formatter = new Intl.DateTimeFormat("en-TN-u-ca-islamic", {
-    //         day: "2-digit",
-    //         month: "2-digit",
-    //         year: "numeric",
-    //     });
-
-    //     let hijriDate = formatter.format(oldDate);
-    //     hijriDate = hijriDate.replace(/[^\d/]/g, "");
-
-    //     const [month, day, year] = hijriDate.split("/");
-    //     return `${day}/${month}/${year}`;
-    // };
-
+    
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         setSubmitting(true);
 
         try {
             await addPersonSchema.validate(formData, { abortEarly: false });
-            const stringGender = formData.gender == 1 ? "ذكر" : "أنثي"
-            
-            // تحويل جميع التواريخ إلى هجري
-            // const expiryDateHijri = convertToHijri(formData.expiryDate);
-            // const programExpiryHijri = convertToHijri(formData.programExpiry);
-            // const issueDateHijri = convertToHijri(formData.issueDate);
+            const stringGender = formData.gender == 1 ? "ذكر" : "أنثي";
 
             const payload: EditedPersonType = { 
                 ...formData, 
                 gender: stringGender, 
-                // expiryDate: expiryDateHijri,
-                // programExpiry: programExpiryHijri,
-                // issueDate: issueDateHijri
             }
 
             await storeToFirebase(payload);

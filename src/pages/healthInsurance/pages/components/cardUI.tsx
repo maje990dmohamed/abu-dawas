@@ -15,7 +15,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                 ref={ref}
                 style={{
                     width: '250mm',
-                    height: '337mm',
+                    height: '320mm', // 337
                     backgroundColor: '#EDEDED',
                     fontFamily: 'Arial, sans-serif',
                     direction: 'rtl',
@@ -150,19 +150,6 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                                     {data?.name || ''}
 
                                 </label>
-                                {/* <div style={{
-                                    backgroundColor: '#E8F4F1',
-                                    border: '2px solid #ddd',
-                                    borderRadius: '8px',
-                                    padding: '12px',
-                                    fontSize: '20px',
-                                    // fontFamily: 'Cairo, Arial',
-                                    color: '#4A9B8E',
-                                    fontWeight: 600,
-                                    textAlign: 'center'
-                                }}>
-                                    {data?.name || 'مد شبير أوشين'}
-                                </div> */}
                             </div>
 
                             {/* رقم الهوية */}
@@ -388,7 +375,8 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                             gap: '5px',
                             alignItems: 'center',
                             backgroundColor: 'rgba(130, 209, 171, 0.5)',
-                            padding: "5px"
+                            padding: "5px",
+                            height:'fit-content'
                         }}>
                             {/* الصورة الشخصية */}
                             <div style={{
@@ -424,7 +412,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                             </div>
 
                             {/* الكيو آر كود */}
-                            <div style={{
+                            {!(data?.preventScan == true) && <div style={{
                                 border: '2px solid #333',
                                 padding: '5px',
                                 backgroundColor: 'white'
@@ -434,7 +422,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                                     size={150}
                                     level={"H"}
                                 />
-                            </div>
+                            </div>}
                         </div>
 
                     </div>
@@ -451,7 +439,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                     alignItems: 'center',
                     fontSize: '14px',
                     // fontFamily: 'Cairo, Arial',
-                    marginTop: '0'
+                    marginTop: ''
                 }}>
                     <img src={footerImg} style={{ width: "100%" }} alt="" />
                 </div>

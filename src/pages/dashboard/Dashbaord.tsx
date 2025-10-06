@@ -10,7 +10,7 @@ import { IoAdd } from "react-icons/io5";
 import { useSearchParams } from "react-router-dom";
 
 export const Dashboard = () => {
-    const { getAllPersons, data, loading , setData } = useIndexPersons();
+    const { getAllPersons, data, loading, setData } = useIndexPersons();
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -91,18 +91,18 @@ export const Dashboard = () => {
     // }, [filteredData, searchTerm]);
 
 
-       const filterDeletedData = (selectedIDS:string[]) => { 
-        const newData = data.filter((item:any) => !selectedIDS.includes(String(item.idNumber)));
+    const filterDeletedData = (selectedIDS: string[]) => {
+        const newData = data.filter((item: any) => !selectedIDS.includes(String(item.idNumber)));
         setData(newData);
-      }
+    }
     return (
         <>
             <div className="space-y-6">
                 <div className="flex items-center justify-between">
                     <PageHeader title="الشهادات الصحية" className=" !w-fit" isBackButton={false} />
-                    <Link className="p-5 rounded-2xl  w-fit flex items-center gap-1 ms-auto" to="/add-new-person"> 
-                        <IoAdd className=" font-bold text-xl" /> 
-                        اضافة شهادة صحية 
+                    <Link className="p-5 rounded-2xl  w-fit flex items-center gap-1 ms-auto" to="/add-new-person">
+                        <IoAdd className=" font-bold text-xl" />
+                        اضافة شهادة صحية
                     </Link>
                 </div>
 
@@ -148,9 +148,9 @@ export const Dashboard = () => {
                             { label: "تاريخ انتهاء البرنامج التثقيبي", key: "programExpiry" },
                             { label: "البرنامج التثقيبي", key: "programType" },
                             { label: "الصورة", key: "photoUrl" },
+                            { label: "منع مسح الكود", key: "seeQR" },
                         ]}
                         isView
-                        // isDelete
                         totalPages={totalPages}
                         isEdit
                         isDelete
@@ -163,7 +163,7 @@ export const Dashboard = () => {
                         collectionName={"persons"}
                     />
                 </div>
-                
+
             </div>
 
             <ToastContainer
