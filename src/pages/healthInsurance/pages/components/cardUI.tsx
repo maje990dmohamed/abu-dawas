@@ -15,7 +15,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                 ref={ref}
                 style={{
                     width: '250mm',
-                    height: '320mm', // 337
+                    height: '310mm', // 337
                     backgroundColor: '#EDEDED',
                     fontFamily: 'Arial, sans-serif',
                     direction: 'rtl',
