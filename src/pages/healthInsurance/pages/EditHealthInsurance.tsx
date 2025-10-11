@@ -11,11 +11,12 @@ import useEditHealthInsurance from '../hooks/useEditHealthInsurance'
 import { CgGenderMale } from 'react-icons/cg'
 import SelectMenu from '../../../components/common/inputs/SelectMenu'
 import { MdDateRange } from 'react-icons/md'
+import MultiSelectMenu from '../../../components/inputs/MutilSelectMenu/MultiSelectMenu'
 
 
 const EditHealthInsurance = () => {
 
-    const { formData, handleFieldChange, submitting, errors, handleSubmit, genderOptions } = useEditHealthInsurance();
+    const { formData, handleFieldChange, submitting, errors, insurances, handleSubmit, genderOptions } = useEditHealthInsurance();
 
     return (
         <div className="space-y-6">
@@ -152,6 +153,25 @@ const EditHealthInsurance = () => {
                         <InputWithIcon isRequired icon={<GrUserWorker size={20} />} error={errors?.job} value={formData?.job} onChange={(e) => handleFieldChange("job", e?.target?.value)} label="المهنه" />
 
                     </div>
+
+                    <MultiSelectMenu
+                        disabled={false}
+                        label='اختر الأمانات'
+                        name='insurance'
+                        onChange={(e: any) => {
+                            console.log("event", e);
+                            handleFieldChange("insurance", e)
+                        }}
+                        handleParentsChange={(e: any) => {
+                            console.log("event", e);
+                            handleFieldChange("insurance", e)
+                        }}
+                        options={insurances}
+                        value2={insurances}
+                        value={formData?.insurance}
+                        formData={formData}
+                        isSearch={true}
+                    />
 
                     <Button loading={submitting} type="submit" className="mt-5" >
                         <FaSave className=" ml-2 mt-0.5" />

@@ -11,9 +11,10 @@ import useAddHealthInsurance from '../hooks/useAddHealthInsurance'
 import SelectMenu from '../../../components/common/inputs/SelectMenu'
 import { CgGenderMale } from 'react-icons/cg'
 import { MdDateRange } from 'react-icons/md'
+import MultiSelectMenu from '../../../components/inputs/MutilSelectMenu/MultiSelectMenu'
 
 const AddHealthInsurance = () => {
-    const { formData, handleFieldChange, submitting, errors, handleSubmit, genderOptions } = useAddHealthInsurance();
+    const { formData, handleFieldChange, submitting, insurances, errors, handleSubmit, genderOptions } = useAddHealthInsurance();
 
     return (
         <div className="space-y-6">
@@ -151,9 +152,18 @@ const AddHealthInsurance = () => {
 
                     </div>
 
-
-
-
+                    <MultiSelectMenu
+                        disabled={false}
+                        label='اختر الأمانات'
+                        name='insurance'
+                        onChange={(e: any) => handleFieldChange("insurance", e)}
+                        handleParentsChange={(e: any) => handleFieldChange("insurance", e)}
+                        options={insurances}
+                        value2={insurances}
+                        value={formData?.insurance}
+                        isSearch
+                    />
+                    
                     <Button loading={submitting} type="submit" className="mt-5" >
                         <FaSave className=" ml-2 mt-0.5" />
                         حفظ

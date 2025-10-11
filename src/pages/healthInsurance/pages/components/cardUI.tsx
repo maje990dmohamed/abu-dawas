@@ -1,14 +1,17 @@
 import { forwardRef } from 'react'
 import QRCode from 'react-qr-code'
 
-import logo1 from "../../../../assets/icons/1.png"
-import logo2 from "../../../../assets/icons/2.png"
-import logo3 from "../../../../assets/icons/3.png"
+import logo1 from "../../../../assets/icons/صورة_امانة_الرياض.png"
+import logo2 from "../../../../assets/icons/امانة_جدة.png"
+import logo3 from "../../../../assets/icons/امانة_منطقة_الشرقية.png"
+import logo4 from "../../../../assets/icons/امانة_مكة_المقدسة.png"
 
 import footerImg from '../../../../assets/icons/footerImg.png'
 
 const CardUI = forwardRef<HTMLDivElement, any>(
     ({ data }: any, ref: any) => {
+        // create vars like one = true or false -> four 
+        // if data.insurance -> has item with id = 1 -> one = true and so on
         return (
             <div
                 id="HealthCareCard"
@@ -38,60 +41,40 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                 }}>
 
                     {/* الشعارات على اليمين */}
-                    <div style={{
-                        display: 'flex',
-                        gap: '10px',
-                        alignItems: 'center',
-
-                    }}>
-                        {/* يمكنك إضافة الشعارات هنا */}
+                    {data?.insurance && data?.insurance?.length > 0 &&
                         <div style={{
-                            width: '50px',
-                            height: '50px',
-                            backgroundColor: 'white',
-                            borderRadius: '50%',
                             display: 'flex',
+                            gap: '10px',
                             alignItems: 'center',
-                            justifyContent: 'center',
-                            color: '#4A9B8E',
-                            fontSize: '18px',
-                            fontWeight: 'bold'
+
                         }}>
-                            <img src={logo3} style={{ width: "100%" }} alt="" />
-                        </div>
-                        <div style={{
-                            width: '50px',
-                            height: '50px',
-                            backgroundColor: 'white',
-                            borderRadius: '50%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            color: '#4A9B8E',
-                            fontSize: '18px',
-                            fontWeight: 'bold'
-                        }}>
-                            <img src={logo2} style={{ width: "100%" }} alt="" />
+                            {/* يمكنك إضافة الشعارات هنا */}
+                            {data?.insurance && data.insurance.length > 0 && (
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        gap: "10px",
+                                        alignItems: "center",
+                                    }}
+                                >
+                                    {data.insurance.some((ins: any) => ins.id === "1") && (
+                                        <img src={logo1} alt="أمانة الرياض" style={{ width: "60px", height: "60px" }} />
+                                    )}
 
-                        </div>
-                        <div style={{
-                            width: '50px',
-                            height: '50px',
-                            backgroundColor: 'white',
-                            borderRadius: '50%',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            color: '#4A9B8E',
-                            fontSize: '18px',
-                            fontWeight: 'bold'
-                        }}>
+                                    {data.insurance.some((ins: any) => ins.id === "2") && (
+                                        <img src={logo2} alt="أمانة جدة" style={{ width: "70px", height: "70px" }} />
+                                    )}
 
-                            <img src={logo1} style={{ width: "100%" }} alt="" />
+                                    {data.insurance.some((ins: any) => ins.id === "3") && (
+                                        <img src={logo3} alt="أمانة الشرقية" style={{ width: "70px", height: "70px" }} />
+                                    )}
 
-
-                        </div>
-                    </div>
+                                    {data.insurance.some((ins: any) => ins.id === "4") && (
+                                        <img src={logo4} alt="أمانة مكة" style={{ width: "60px", height: "60px" }} />
+                                    )}
+                                </div>
+                            )}
+                        </div>}
 
                     <div style={{
                         fontSize: '35px',
@@ -376,7 +359,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                             alignItems: 'center',
                             backgroundColor: 'rgba(130, 209, 171, 0.5)',
                             padding: "5px",
-                            height:'fit-content'
+                            height: 'fit-content'
                         }}>
                             {/* الصورة الشخصية */}
                             <div style={{

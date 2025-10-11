@@ -63,10 +63,6 @@ const useViewHealthInsurance = () => {
             if (!querySnapshot.empty) {
                 const docData = querySnapshot.docs[0].data() as any;
 
-
-                console.log(docData, '555555555555555555555');
-
-
                 setFormData({
                     ...docData,
                     gender: docData.gender === "ذكر" ? 1 : 2,
