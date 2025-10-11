@@ -78,12 +78,10 @@ const MultiSelectMenu: React.FC<MultiSelectMenuProps> = ({
   const [open, setOpen] = useState(false);
 
   const availableOptions = options.filter(
-    (opt) => !selectedIds.includes(opt.id)
+    (opt) => !selectedIds?.includes(opt.id)
   );
 
-  console.log("opts", options, isSearch);
   
-
   return (
 
     <>

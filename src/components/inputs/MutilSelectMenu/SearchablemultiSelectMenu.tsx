@@ -31,7 +31,7 @@ const InputWrapper = styled('div')(() => ({
   display: 'flex',
   flexWrap: 'wrap',
   overflow: "hidden",
-  color:"#000",
+  color: "#000",
 
   '&:hover': {
     borderColor: '#9C00C9',
@@ -86,7 +86,7 @@ const StyledItem = styled(Item)<ItemProps>(({ theme }) => ({
   outline: 0,
   overflow: 'hidden',
   marginTop: "8px",
-  color:"#000",
+  color: "#000",
 
   '&:focus': {
     borderColor: '#40a9ff',
@@ -137,16 +137,16 @@ function CustomAutocomplete<Value>(
     multiple: true,
     options: props.options,
     getOptionLabel: props.getOptionLabel,
-    value: props.value,
-    isOptionEqualToValue: (option, value) => (option as any)?.id === (value as any)?.id,  
+    value: props.value || [],
+    isOptionEqualToValue: (option, value) => (option as any)?.id === (value as any)?.id,
     onChange: (event, newValue) => {
       console.log(event);
-      
+
       if (props.handleParentsChange) {
         props.handleParentsChange(newValue);
       }
 
-      if (newValue.length > 0 && props.error) {
+      if (Array.isArray(newValue) && newValue?.length > 0 && props.error) {
         props.setErrors({
           available_parents: "",
           recepients: "",
@@ -203,7 +203,7 @@ function CustomAutocomplete<Value>(
       },
     },
   }));
-  
+
 
   const isRTL = true;
   return (
@@ -256,12 +256,7 @@ function CustomAutocomplete<Value>(
           {groupedOptions.map((option: any, index) => {
             const { key, ...optionProps } = getOptionProps({ option, index });
             return (
-              <li className='flex items-center hover:!bg-[#9C00C9]/10' key={`${crypto.randomUUID()}`} {...optionProps}>
-                <img
-                  src={option?.avatar || option?.image}
-                  alt={props.getOptionLabel!(option)}
-                  className="w-10 h-10 rounded-full object-cover me-2"
-                />
+              <li className='flex items-center hover:!bg-[#9C00C9]/10 !pr-3' key={`${crypto.randomUUID()}`} {...optionProps}>
                 <span>{props.getOptionLabel!(option)}</span>
                 <CheckIcon fontSize="small" color={"primary"} />
               </li>
