@@ -6,6 +6,7 @@ import { db } from '../../../firebase';
 import { isPhotoFile } from '../../../lib/helpers';
 import type { EditedPersonType } from '../../../types/types';
 import { addHealthInsuranceSchema } from '../validate/addSchema';
+import useInsurances from '../../../hooks/useInsurances';
 // import { hijriConverter } from '../../../lib/DateConverter';
 
 const useEditHealthInsurance = () => {
@@ -13,6 +14,8 @@ const useEditHealthInsurance = () => {
   const [submitting, setSubmitting] = useState(false);
   const [docId, setDocId] = useState<any>(null);
   const { idNumber } = useParams();
+
+  const { insurances } = useInsurances();
 
   const genderOptions = [
     { id: 1, name: "ذكر" },
@@ -36,7 +39,8 @@ const useEditHealthInsurance = () => {
     expiryCerDate: "",
     FirmLicenseNum: 0,
     FirmNum: 0,
-    firmName: ""
+    firmName: "",
+    insurance: []
   });
 
   const [errors, setErrors] = useState<any>({});
@@ -62,19 +66,9 @@ const useEditHealthInsurance = () => {
         const docData = docSnap.data() as any;
         const docId = docSnap.id;
         setDocId(docId);
-
-        console.log("docDataaa", docData);
-
-
-        // عرض التواريخ ميلادي للمستخدم
         setFormData({
           ...docData,
           gender: docData.gender === "ذكر" ? 1 : 2,
-          // expiryCerDateHijri: docData.expiryCerDateHijri ? new Date(hijriConverter(docData.expiryCerDateHijri)) : "",
-          // programExpiry: docData.programExpiry ? new Date(hijriConverter(docData.programExpiry)) : "",
-          // issueCerDateHijri: docData.issueCerDateHijri ? new Date(hijriConverter(docData.issueCerDateHijri)) : "",
-          // expiryCerDate: docData.expiryCerDate ? new Date(hijriConverter(docData.expiryCerDate)) : "",
-          // issueCerDate: docData.issueCerDate ? new Date(hijriConverter(docData.issueDate)) : "",
         });
 
       } else {
@@ -86,25 +80,8 @@ const useEditHealthInsurance = () => {
       setLoading(false);
     }
   };
+  console.log("dataa", formData);
 
-  // 🔥 دالة لتحويل أي تاريخ من ميلادي → هجري
-  // const convertToHijri = (dateString: string) => {
-  //   if (!dateString) return "";
-
-  //   const oldDate = new Date(dateString);
-
-  //   const formatter = new Intl.DateTimeFormat("en-TN-u-ca-islamic", {
-  //     day: "2-digit",
-  //     month: "2-digit",
-  //     year: "numeric",
-  //   });
-
-  //   let hijriDate = formatter.format(oldDate);
-  //   hijriDate = hijriDate.replace(/[^\d/]/g, "");
-
-  //   const [month, day, year] = hijriDate.split("/");
-  //   return `${day}/${month}/${year}`;
-  // };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -119,13 +96,6 @@ const useEditHealthInsurance = () => {
       const payload: EditedPersonType = {
         ...formData,
         gender: stringGender,
-        // expiryCerDateHijri: convertToHijri(formData.expiryCerDateHijri),
-        // issueCerDateHijri: convertToHijri(formData.issueCerDateHijri),
-        // expiryCerDate: convertToHijri(formData.expiryCerDate),
-        // issueCerDate: convertToHijri(formData.issueCerDate),
-        // programExpiry: convertToHijri(formData.programExpiry),
-
-
       };
 
       await storeToFirebase(payload);
@@ -194,7 +164,8 @@ const useEditHealthInsurance = () => {
     setErrors,
     handleFieldChange,
     loading,
-    genderOptions
+    genderOptions,
+    insurances
   };
 };
 

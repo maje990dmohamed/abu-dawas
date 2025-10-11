@@ -6,6 +6,7 @@ import { db } from '../../../firebase';
 import { isPhotoFile } from '../../../lib/helpers';
 import type { EditedPersonType, healthInsuranceType } from '../../../types/types';
 import { addHealthInsuranceSchema } from '../validate/addSchema';
+import useInsurances from '../../../hooks/useInsurances';
 
 const useAddHealthInsurance = () => {
   const [submitting, setSubmitting] = useState(false);
@@ -30,7 +31,8 @@ const useAddHealthInsurance = () => {
     expiryCerDate: "",
     FirmLicenseNum: "",
     FirmNum: "",
-    firmName: ""
+    firmName: "",
+    insurance: []
   });
 
   const [errors, setErrors] = useState<any>({
@@ -51,9 +53,10 @@ const useAddHealthInsurance = () => {
     expiryCerDate: "",
     FirmLicenseNum: "",
     FirmNum: "",
-    firmName: ""
-
+    firmName: "",
   });
+
+  const {insurances} = useInsurances()
 
   const genderOptions = [
     { id: 1, name: "ذكر" },
@@ -95,6 +98,9 @@ const useAddHealthInsurance = () => {
     }
   };
 
+
+  console.log("data", formData);
+  
   const navigate = useNavigate();
 
   const getBase64 = (file: File) => {
@@ -141,7 +147,8 @@ const useAddHealthInsurance = () => {
     errors,
     setErrors,
     handleFieldChange,
-    genderOptions
+    genderOptions,
+    insurances
   };
 };
 

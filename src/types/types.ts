@@ -53,6 +53,7 @@ export type healthInsuranceType = {
     FirmNum: number | string
     firmName: string,
     photoUrl: string | PhotoFile,
+    insurance: {id:string | number, name:string}[] | []
 }
 
   
