@@ -1,13 +1,16 @@
 import { forwardRef } from 'react'
 import QRCode from 'react-qr-code'
 
-import milt from "../../../../assets/icons/3.png"
-import baladya from "../../../../assets/icons/2.png"
+import milt from "../../../../assets/icons/3milt.png"
+import baladya from "../../../../assets/icons/2baladya.png"
 
-import logo1 from "../../../../assets/icons/صورة_امانة_الرياض.png"
-import logo2 from "../../../../assets/icons/امانة_جدة.png"
-import logo3 from "../../../../assets/icons/امانة_منطقة_الشرقية.png"
-import logo4 from "../../../../assets/icons/امانة_مكة_المقدسة.png"
+import logo1 from "../../../../assets/icons/صورة_امانة_الرياض2.png"
+import logo2 from "../../../../assets/icons/امانة_جدة2.png"
+import logo3 from "../../../../assets/icons/امانة_منطقة_الشرقية2.png"
+import logo4 from "../../../../assets/icons/امانة_مكة_المقدسة2.png"
+
+import logo5 from "../../../../assets/icons/assir.png"
+import logo6 from "../../../../assets/icons/almadinah.png"
 
 import footerImg from '../../../../assets/icons/footerImg.png'
 
@@ -44,10 +47,10 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                 }}>
 
                     {/* الشعارات على اليمين */}
-                    <div className=' flex items-center'>
-                        <div className=' flex '>
-                            <img src={milt} style={{ width: "70px", height: "70px" }} />
-                            <img src={baladya} style={{ width: "70px", height: "70px" }} />
+                    <div className=' flex items-center gap-1 '>
+                        <div className=' flex items-center gap-1'>
+                            <img src={milt} style={{ width: "65px", height: "50px" }} />
+                            <img src={baladya} style={{ width: "50px", height: "50px" }} />
                         </div>
                         {data?.insurance && data?.insurance?.length > 0 &&
                             <div style={{
@@ -56,9 +59,9 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                             }}>
                                 {/* يمكنك إضافة الشعارات هنا */}
                                 {data?.insurance && data.insurance.length > 0 && (
-                                    <>
+                                    <div className=' h-[80px] flex items-center gap-1'>
                                         {data.insurance.some((ins: any) => ins.id === "1") && (
-                                            <img src={logo1} className=' ' alt="أمانة الرياض" style={{ width: "75px", height: "60px" }} />
+                                            <img src={logo1} className=' ' alt="أمانة الرياض" style={{ width: "80px", height: "60px" }} />
                                         )}
                                         {data.insurance.some((ins: any) => ins.id === "2") && (
                                             <img src={logo2} className=' ' alt="أمانة جدة" style={{ width: "70px", height: "70px" }} />
@@ -67,10 +70,17 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                                             <img src={logo3} className=' ' alt="أمانة الشرقية" style={{ width: "70px", height: "70px" }} />
                                         )}
                                         {data.insurance.some((ins: any) => ins.id === "4") && (
-                                            <img src={logo4} className=' ' alt="أمانة مكة" style={{ width: "60px", height: "50px" }} />
+                                            <img src={logo4} className=' ' alt="أمانة مكة" style={{ width: "50px", height: "60px" }} />
+                                        )}
+                                        
+                                        {data.insurance.some((ins: any) => ins.id === "5") && (
+                                            <img src={logo5} className=' ' alt="أمانة عسير" style={{ width: "70px", height: "70px" }} />
+                                        )}
+                                        {data.insurance.some((ins: any) => ins.id === "6") && (
+                                            <img src={logo6} className=' ' alt="أمانة المدينة" style={{ width: "70px", height: "70px" }} />
                                         )}
 
-                                    </>
+                                    </div>
                                     // <div
                                     //     style={{
                                     //         display: "flex",
