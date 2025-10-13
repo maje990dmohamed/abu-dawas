@@ -194,10 +194,10 @@ const ViewHealthInsurance = () => {
             {
                 formData && (
                     <div style={{
-                        // position: "absolute",
-                        // left: "-9999px",
-                        // top: "-9999px",
-                        // zIndex: -1,
+                        position: "absolute",
+                        left: "-9999px",
+                        top: "-9999px",
+                        zIndex: -1,
                     }}>
                         <CardUI ref={certificateRef} data={formData} />
                     </div>

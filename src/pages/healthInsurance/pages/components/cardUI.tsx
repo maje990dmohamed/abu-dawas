@@ -16,8 +16,7 @@ import footerImg from '../../../../assets/icons/footerImg.png'
 
 const CardUI = forwardRef<HTMLDivElement, any>(
     ({ data }: any, ref: any) => {
-        // create vars like one = true or false -> four 
-        // if data.insurance -> has item with id = 1 -> one = true and so on
+        
         return (
             <div
                 id="HealthCareCard"
@@ -49,8 +48,8 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                     {/* الشعارات على اليمين */}
                     <div className=' flex items-center gap-1 '>
                         <div className=' flex items-center gap-1'>
-                            <img src={milt} style={{ width: "65px", height: "50px" }} />
-                            <img src={baladya} style={{ width: "50px", height: "50px" }} />
+                            <img src={milt} style={{ width: "100px", height: "100px" }} className=' border-l border-gray-300 pl-1' />
+                            <img src={baladya} style={{ width: "90px", height: "100px" }} className={` ${data?.insurance && data?.insurance?.length > 0 ? "border-l border-gray-300 pl-1" : ""}`} />
                         </div>
                         {data?.insurance && data?.insurance?.length > 0 &&
                             <div style={{
@@ -61,31 +60,27 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                                 {data?.insurance && data.insurance.length > 0 && (
                                     <div className=' h-[80px] flex items-center gap-1'>
                                         {data.insurance.some((ins: any) => ins.id === "1") && (
-                                            <img src={logo1} className=' ' alt="أمانة الرياض" style={{ width: "80px", height: "60px" }} />
+                                            <img src={logo1}   alt="أمانة الرياض" style={{ width: "100px", height: "100px" }}  />
                                         )}
                                         {data.insurance.some((ins: any) => ins.id === "2") && (
-                                            <img src={logo2} className=' ' alt="أمانة جدة" style={{ width: "70px", height: "70px" }} />
+                                            <img src={logo2} className=' ' alt="أمانة جدة" style={{ width: "100px", height: "100px" }}  />
                                         )}
                                         {data.insurance.some((ins: any) => ins.id === "3") && (
-                                            <img src={logo3} className=' ' alt="أمانة الشرقية" style={{ width: "70px", height: "70px" }} />
+                                            <img src={logo3} className=' ' alt="أمانة الشرقية" style={{ width: "100px", height: "100px" }}  />
                                         )}
                                         {data.insurance.some((ins: any) => ins.id === "4") && (
-                                            <img src={logo4} className=' ' alt="أمانة مكة" style={{ width: "50px", height: "60px" }} />
+                                            <img src={logo4} className=' ' alt="أمانة مكة" style={{ width: "80px", height: "100px" }}  />
                                         )}
                                         
                                         {data.insurance.some((ins: any) => ins.id === "5") && (
-                                            <img src={logo5} className=' ' alt="أمانة عسير" style={{ width: "70px", height: "70px" }} />
+                                            <img src={logo5} className=' ' alt="أمانة عسير" style={{ width: "100px", height: "100px" }}  />
                                         )}
                                         {data.insurance.some((ins: any) => ins.id === "6") && (
-                                            <img src={logo6} className=' ' alt="أمانة المدينة" style={{ width: "70px", height: "70px" }} />
+                                            <img src={logo6} className=' ' alt="أمانة المدينة" style={{ width: "100px", height: "100px" }}  />
                                         )}
 
                                     </div>
-                                    // <div
-                                    //     style={{
-                                    //         display: "flex",
-                                    //         alignItems: "center",
-                                    //     }}
+                                    
 
                                 )}
                             </div>}
@@ -97,8 +92,8 @@ const CardUI = forwardRef<HTMLDivElement, any>(
                         padding: "10px 20px",
 
                         backgroundColor: '#207373',
-                        fontFamily: "Noto Kufi Arabic, sans-serif"
-
+                        fontFamily: "Noto Kufi Arabic, sans-serif",
+                        marginLeft:"-20px"
 
                     }}>
                         الشهادة الصحية الموحدة
