@@ -7,7 +7,6 @@ import { isPhotoFile } from '../../../lib/helpers';
 import type { EditedPersonType } from '../../../types/types';
 import { addHealthInsuranceSchema } from '../validate/addSchema';
 import useInsurances from '../../../hooks/useInsurances';
-// import { hijriConverter } from '../../../lib/DateConverter';
 
 const useEditHealthInsurance = () => {
   const [loading, setLoading] = useState(false);
