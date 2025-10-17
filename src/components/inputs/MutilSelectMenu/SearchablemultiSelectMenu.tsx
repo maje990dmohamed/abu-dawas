@@ -252,11 +252,11 @@ function CustomAutocomplete<Value>(
 
       </div>
       {groupedOptions?.length > 0 ? (
-        <Listbox  {...getListboxProps()}>
+        <Listbox  {...getListboxProps()} className='!w-[200px] md:!w-[450px] lg:!w-[700px] 2xl:!w-[1100px] '>
           {groupedOptions.map((option: any, index) => {
             const { key, ...optionProps } = getOptionProps({ option, index });
             return (
-              <li className='flex items-center hover:!bg-[#9C00C9]/10 !pr-3' key={`${crypto.randomUUID()}`} {...optionProps}>
+              <li className='flex items-center hover:!bg-[#9C00C9]/10 !pr-3 ]' key={`${crypto.randomUUID()}`} {...optionProps}>
                 <span>{props.getOptionLabel!(option)}</span>
                 <CheckIcon fontSize="small" color={"primary"} />
               </li>

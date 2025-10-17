@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   content: [
     "./index.html",
@@ -6,24 +7,28 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        arabic: ["Cairo", "sans-serif"],
+        kufi: ['"Noto Kufi Arabic"', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         primary: {
           DEFAULT: "hsl(var(--primary-color))",
         },
-        secondary: "var(--secondary-color)", 
+        secondary: "var(--secondary-color)",
         gray: {
-          500: "#6B7280", // safe gray (hex instead of oklch)
+          500: "#6B7280",
         },
       },
     },
     corePlugins: {
-        preflight: false, // optional: disables modern reset
+      preflight: false, 
     },
     future: {
-        disableColorOpacityUtilitiesByDefault: true,
+      disableColorOpacityUtilitiesByDefault: true,
     },
     experimental: {
-        optimizeUniversalDefaults: true,
+      optimizeUniversalDefaults: true,
     },
   },
   plugins: [],

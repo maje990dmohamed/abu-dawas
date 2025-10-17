@@ -12,25 +12,20 @@ import logo4 from "../../../../assets/icons/امانة_مكة_المقدسة2.pn
 import logo5 from "../../../../assets/icons/assir.png";
 import logo6 from "../../../../assets/icons/almadinah.png";
 
-import footerImg from "../../../../assets/icons/footerImg.png";
-import background from "../../../../assets/icons/back.png";
+import background from "../../../../assets/icons/real-back.png";
+
+import contactImage from "../../../../assets/icons/contact.png";
+import footerImg from "../../../../assets/icons/footerImage.png";
 
 const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
   return (
     <div
-      id="HealthCareCard"
       ref={ref}
       style={{
-        width: "250mm",
-        height: "310mm", // 337
+        width: "990px",
         backgroundColor: "#EDEDED",
         fontFamily: "Arial, sans-serif",
         direction: "rtl",
-        backgroundImage: `url(${background})`,
-        backgroundSize: "100% auto",
-        backgroundPosition: "center top",
-        backgroundRepeat: "no-repeat",
-        boxSizing: "border-box",
         margin: 0,
         padding: 0,
         display: "flex",
@@ -40,7 +35,18 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
       }}
     >
       {/* الجزء العلوي الأخضر */}
-      <div>
+      <div
+        id="HealthCareCard"
+        style={{
+          direction: "rtl",
+          backgroundImage: `url(${background})`,
+          backgroundSize: "100% auto",
+          backgroundPosition: "center top",
+          backgroundRepeat: "no-repeat",
+          boxSizing: "border-box",
+        }}
+        className=" !font-kufi "
+      >
         <div
           style={{
             color: "white",
@@ -50,7 +56,6 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
             alignItems: "center",
           }}
         >
-          {/* <img className=" absolute top-0 !h-10/12 left-0 !-z-0" src={background} /> */}
           {/* الشعارات على اليمين */}
           <div className=" flex items-center gap-1 z-10">
             <div className=" flex items-center gap-1">
@@ -131,36 +136,40 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               </div>
             )}
           </div>
+
           <div
             style={{
               fontSize: "35px",
-              fontWeight: 600,
+              fontWeight: 500,
               padding: "10px 20px",
+              paddingLeft:"100px",
+              paddingRight:"100px",
               zIndex: 100,
-              backgroundColor: "#207373",
-              fontFamily: "Noto Kufi Arabic, sans-serif",
+              backgroundColor: "#0E726F",
               marginLeft: "-20px",
             }}
+            className=" !text-5xl  !font-kufi"
           >
-            الشهادة الصحية الموحدة
+            الشهادة الصحية
           </div>
         </div>
+
         {/* الجزء الأبيض الرئيسي */}
         <div
           style={{
             flex: 1,
             padding: "0 20px",
             zIndex: 100,
-            //   backgroundColor: "#EDEDED",
             display: "flex",
             flexDirection: "column",
+            
           }}
         >
           {/* الجزء العلوي - الصورة والكيو آر كود على اليسار والمعلومات على اليمين */}
           <div
             style={{
               display: "flex",
-              gap: "6px",
+              gap: "20px",
               zIndex: 100,
               marginBottom: "0px",
             }}
@@ -198,11 +207,12 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               {/* رقم الهوية */}
               <div style={{ textAlign: "right" }}>
                 <label
+                  className=" !text-xl !font-normal"
                   style={{
                     display: "block",
                     marginBottom: "8px",
                     fontSize: "14px",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     color: "black",
                     fontFamily: "Noto Kufi Arabic, sans-serif",
                   }}
@@ -218,7 +228,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
                     fontSize: "16px",
                     // fontFamily: 'Cairo, Arial',
                     color: "black",
-                    fontWeight: "900",
+                    fontWeight: "600",
                   }}
                 >
                   {data?.idNumber || ""}
@@ -227,11 +237,12 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               {/* الجنسية */}
               <div style={{ textAlign: "right" }}>
                 <label
+                  className=" !text-xl !font-normal"
                   style={{
                     display: "block",
                     marginBottom: "8px",
                     fontSize: "14px",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     color: "black",
                     fontFamily: "Noto Kufi Arabic, sans-serif",
                   }}
@@ -247,7 +258,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
                     fontSize: "16px",
                     // fontFamily: 'Cairo, Arial',
                     color: "black",
-                    fontWeight: "900",
+                    fontWeight: "600",
                   }}
                 >
                   {data?.nationality || ""}
@@ -256,11 +267,12 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               {/* رقم الشهادة الصحية */}
               <div style={{ textAlign: "right" }}>
                 <label
+                  className=" !text-xl !font-normal"
                   style={{
                     display: "block",
                     marginBottom: "8px",
                     fontSize: "14px",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     color: "black",
                     fontFamily: "Noto Kufi Arabic, sans-serif",
                   }}
@@ -276,7 +288,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
                     fontSize: "16px",
                     // fontFamily: 'Cairo, Arial',
                     color: "black",
-                    fontWeight: "900",
+                    fontWeight: "600",
                   }}
                 >
                   {data?.certificateNumber || ""}
@@ -285,11 +297,12 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               {/* المهنة */}
               <div style={{ textAlign: "right" }}>
                 <label
+                  className=" !text-xl !font-normal"
                   style={{
                     display: "block",
                     marginBottom: "8px",
                     fontSize: "14px",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     color: "black",
                     fontFamily: "Noto Kufi Arabic, sans-serif",
                   }}
@@ -305,7 +318,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
                     fontSize: "16px",
                     // fontFamily: 'Cairo, Arial',
                     color: "black",
-                    fontWeight: "900",
+                    fontWeight: "600",
                   }}
                 >
                   {data?.job || ""}
@@ -314,11 +327,12 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               {/* تاريخ إصدار الشهادة الصحية */}
               <div style={{ textAlign: "right" }}>
                 <label
+                  className=" !text-xl !font-normal"
                   style={{
                     display: "block",
                     marginBottom: "8px",
                     fontSize: "14px",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     color: "black",
                     fontFamily: "Noto Kufi Arabic, sans-serif",
                   }}
@@ -334,7 +348,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
                     fontSize: "16px",
                     // fontFamily: 'Cairo, Arial',
                     color: "black",
-                    fontWeight: "900",
+                    fontWeight: "600",
                   }}
                 >
                   {data?.issueCerDateHijri || ""}
@@ -343,11 +357,12 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               {/* تاريخ نهاية الشهادة الصحية */}
               <div style={{ textAlign: "right" }}>
                 <label
+                  className=" !text-xl !font-normal"
                   style={{
                     display: "block",
                     marginBottom: "8px",
                     fontSize: "14px",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     color: "black",
                     fontFamily: "Noto Kufi Arabic, sans-serif",
                   }}
@@ -363,7 +378,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
                     fontSize: "16px",
                     // fontFamily: 'Cairo, Arial',
                     color: "black",
-                    fontWeight: "900",
+                    fontWeight: "600",
                   }}
                 >
                   {data?.expiryCerDateHijri || ""}
@@ -372,11 +387,12 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               {/* نوع البرنامج التثقيفي */}
               <div style={{ textAlign: "right" }}>
                 <label
+                  className=" !text-xl !font-normal"
                   style={{
                     display: "block",
                     marginBottom: "8px",
                     fontSize: "14px",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     color: "black",
                     fontFamily: "Noto Kufi Arabic, sans-serif",
                   }}
@@ -392,7 +408,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
                     fontSize: "16px",
                     // fontFamily: 'Cairo, Arial',
                     color: "black",
-                    fontWeight: "900",
+                    fontWeight: "600",
                   }}
                 >
                   {data?.programType || ""}
@@ -401,16 +417,17 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               {/* تاريخ نهاية البرنامج التثقيفي */}
               <div style={{ textAlign: "right" }}>
                 <label
+                  className=" !text-xl !font-normal"
                   style={{
                     display: "block",
                     marginBottom: "8px",
                     fontSize: "14px",
-                    fontWeight: 600,
+                    fontWeight: 400,
                     color: "black",
                     fontFamily: "Noto Kufi Arabic, sans-serif",
                   }}
                 >
-                  تاريخ نهاية البرنامج التثقيفي
+                  تاريخ انتهاء البرنامج التثقيفي
                 </label>
                 <div
                   style={{
@@ -421,7 +438,7 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
                     fontSize: "16px",
                     // fontFamily: 'Cairo, Arial',
                     color: "black",
-                    fontWeight: "900",
+                    fontWeight: "600",
                   }}
                 >
                   {data?.programExpiry || ""}
@@ -433,20 +450,20 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: "5px",
+                marginTop: "-25px",
+                gap: "20px",
                 alignItems: "center",
-                backgroundColor: "rgba(130, 209, 171, 0.5)",
-                padding: "5px",
                 height: "fit-content",
               }}
             >
               {/* الصورة الشخصية */}
               <div
                 style={{
-                  border: "3px solid #4A9B8E",
-                  width: "160px",
-                  height: "160px",
-                  backgroundColor: "white",
+                  border: "2px solid #8AC458",
+                  padding: "10px",
+                  width: "185px",
+                  height: "185px",
+                  // backgroundColor: "white",
                 }}
               >
                 {data?.photoUrl ? (
@@ -478,43 +495,31 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               </div>
               {/* الكيو آر كود */}
               {!(data?.preventScan == true) && (
-                <div
-                  style={{
-                    border: "2px solid #333",
-                    padding: "5px",
-                    backgroundColor: "white",
-                  }}
-                >
-                  <QRCode
-                    value={`https://abudawaswebsitescanqecodewebview.vercel.app/viewSpecificInsuranceProtected/${data.idNumber}`}
-                    size={150}
-                    level={"H"}
-                  />
+                <div style={{padding: "10px", border: "2px solid #8AC458",}}>
+                  <div
+                    style={{
+                      
+                      padding:"20px",
+                      backgroundColor: "white",
+                    }}
+                  >
+                    <QRCode
+                      value={`https://abudawaswebsitescanqecodewebview.vercel.app/viewSpecificInsuranceProtected/${data.idNumber}`}
+                      size={125}
+                      level={"H"}
+                    />
+                  </div>
                 </div>
               )}
             </div>
           </div>
         </div>
+        <img src={contactImage} alt="" />
       </div>
 
       {/* معلومات الاتصال في الأسفل */}
-      <div
-        style={{
-          //   backgroundColor: "white",
-          zIndex: 100,
-
-          // padding: '15px',
-          borderRadius: "10px",
-          // border: '2px solid #333',
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          fontSize: "14px",
-          // fontFamily: 'Cairo, Arial',
-          marginTop: "",
-        }}
-      >
-        <img src={footerImg} style={{ width: "100%" }} alt="" />
+      <div id="footerImage" className=" max-w-full">
+        <img src={footerImg} className=" !w-fit !w-" alt="" />
       </div>
     </div>
   );
