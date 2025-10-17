@@ -16,7 +16,6 @@ import { MdDateRange } from 'react-icons/md'
 
 const ViewHealthInsurance = () => {
     const { formData, certificateRef, loading, genderOptions, handleOpenPDF } = useViewHealthInsurance();
-    console.log("data", formData);
     
     if (loading)
         return <PageLoading />
