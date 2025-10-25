@@ -142,15 +142,15 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               fontSize: "35px",
               fontWeight: 500,
               padding: "10px 20px",
-              paddingLeft:"100px",
-              paddingRight:"100px",
+              paddingLeft: "70px",
+              paddingRight: "70px",
               zIndex: 100,
               backgroundColor: "#0E726F",
               marginLeft: "-20px",
             }}
             className=" !text-5xl  !font-kufi"
           >
-            الشهادة الصحية
+            الشهادة الصحية الموحدة
           </div>
         </div>
 
@@ -162,7 +162,6 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
             zIndex: 100,
             display: "flex",
             flexDirection: "column",
-            
           }}
         >
           {/* الجزء العلوي - الصورة والكيو آر كود على اليسار والمعلومات على اليمين */}
@@ -495,11 +494,10 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
               </div>
               {/* الكيو آر كود */}
               {!(data?.preventScan == true) && (
-                <div style={{padding: "10px", border: "2px solid #8AC458",}}>
+                <div style={{ padding: "10px", border: "2px solid #8AC458" }}>
                   <div
                     style={{
-                      
-                      padding:"20px",
+                      padding: "20px",
                       backgroundColor: "white",
                     }}
                   >
