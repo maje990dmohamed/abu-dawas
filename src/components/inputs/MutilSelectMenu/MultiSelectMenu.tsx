@@ -121,8 +121,7 @@ const MultiSelectMenu: React.FC<MultiSelectMenuProps> = ({
             >
               <img src={icon} alt="" className="w-6 h-6" />
             </div>
-
-            <div className="relative  w-full bg-black dark:!bg-table-body ">
+            <div className="relative  w-full  dark:!bg-table-body ">
               <Select
                 multiple
                 name={name}
@@ -147,7 +146,7 @@ const MultiSelectMenu: React.FC<MultiSelectMenuProps> = ({
                       {selectedItems.map((item) => (
                         <div
                           key={item.id}
-                          className="flex items-center bg-gray-200  rounded-full px-3 py-1 text-sm"
+                          className="flex items-center bg-[#9C00C9]  rounded-full px-3 py-1 text-sm"
                           onMouseDown={(e) => e.stopPropagation()}
                         >
                           {item.name}
@@ -160,7 +159,7 @@ const MultiSelectMenu: React.FC<MultiSelectMenuProps> = ({
                     </div>
                   );
                 }}
-                className="w-full !h-[48px] !rounded-e-[16px] !bg-[#F1F1F1] dark:!bg-table-head"
+                className="w-full !h-[48px] !rounded-e-[16px]  dark:!bg-table-head"
                 sx={{
                   height: "49px",
                   borderRadius: isRTL ? "16px 0 0 16px" : "0 16px 16px 0",
@@ -236,7 +235,7 @@ const MultiSelectMenu: React.FC<MultiSelectMenuProps> = ({
                   </MenuItem>
                 )}
               </Select>
-              {}
+
               <Box
                 sx={{
                   position: "absolute",

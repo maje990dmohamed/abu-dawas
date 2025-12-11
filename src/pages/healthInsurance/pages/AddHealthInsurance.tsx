@@ -25,7 +25,7 @@ const AddHealthInsurance = () => {
   } = useAddHealthInsurance();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-52">
       <PageHeader title="اضافة تأمين" />
       <ViewLayout>
         <form onSubmit={handleSubmit} className=" flex flex-col gap-5">
