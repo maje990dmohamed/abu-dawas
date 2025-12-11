@@ -1,17 +1,18 @@
-import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
-import { useState } from 'react'
-import { useNavigate } from 'react-router';
-import { toast } from 'react-toastify';
-import { db } from '../../../firebase';
-import { isPhotoFile } from '../../../lib/helpers';
-import type { EditedPersonType, healthInsuranceType } from '../../../types/types';
-import { addHealthInsuranceSchema } from '../validate/addSchema';
-import useInsurances from '../../../hooks/useInsurances';
+import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { db } from "../../../firebase";
+import { isPhotoFile } from "../../../lib/helpers";
+import type {
+  EditedPersonType,
+  healthInsuranceType,
+} from "../../../types/types";
+import { addHealthInsuranceSchema } from "../validate/addSchema";
+import useInsurances from "../../../hooks/useInsurances";
 
 const useAddHealthInsurance = () => {
   const [submitting, setSubmitting] = useState(false);
-
-
 
   const [formData, setFormData] = useState<healthInsuranceType>({
     idNumber: "",
@@ -32,7 +33,7 @@ const useAddHealthInsurance = () => {
     FirmLicenseNum: "",
     FirmNum: "",
     firmName: "",
-    insurance: []
+    insurance: [],
   });
 
   const [errors, setErrors] = useState<any>({
@@ -56,12 +57,12 @@ const useAddHealthInsurance = () => {
     firmName: "",
   });
 
-  const {insurances} = useInsurances()
+  const { insurances } = useInsurances();
 
   const genderOptions = [
     { id: 1, name: "ذكر" },
-    { id: 2, name: "أنثي" }
-  ]
+    { id: 2, name: "أنثي" },
+  ];
 
   const handleFieldChange = (field: keyof any, value: any) => {
     setFormData((prev: any) => ({ ...prev, [field]: value }));
@@ -72,7 +73,6 @@ const useAddHealthInsurance = () => {
     e.preventDefault();
     setSubmitting(true);
     console.log(formData);
-
 
     try {
       await addHealthInsuranceSchema.validate(formData, { abortEarly: false });
@@ -98,9 +98,8 @@ const useAddHealthInsurance = () => {
     }
   };
 
-
   console.log("data", formData);
-  
+
   const navigate = useNavigate();
 
   const getBase64 = (file: File) => {
@@ -148,7 +147,7 @@ const useAddHealthInsurance = () => {
     setErrors,
     handleFieldChange,
     genderOptions,
-    insurances
+    insurances,
   };
 };
 

@@ -11,6 +11,18 @@ import logo4 from "../../../../assets/icons/امانة_مكة_المقدسة2.pn
 
 import logo5 from "../../../../assets/icons/assir.png";
 import logo6 from "../../../../assets/icons/almadinah.png";
+import logo7 from "../../../../assets/icons/Al-Ahsa_Municipality_logo.jpg";
+import logo8 from "../../../../assets/icons/dVHZY18f_400x400.jpg";
+import logo9 from "../../../../assets/icons/EaaKoaTXQAUY98b.jpg";
+import logo10 from "../../../../assets/icons/W4aXkN85_400x400.jpg";
+import logo11 from "../../../../assets/icons/5fb36f9336849.jpg";
+import logo12 from "../../../../assets/icons/images.png";
+import logo13 from "../../../../assets/icons/9Skhxprr_400x400.jpeg";
+import logo14 from "../../../../assets/icons/59792.jpg";
+import logo15 from "../../../../assets/icons/الجوف.jpg";
+import logo16 from "../../../../assets/icons/تنزيل (4).jpg";
+import logo17 from "../../../../assets/icons/adawd.jpg";
+import logo18 from "../../../../assets/icons/حفر الباطن.jpg";
 
 import background from "../../../../assets/icons/real-back.png";
 
@@ -128,6 +140,102 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
                         src={logo6}
                         className=" "
                         alt="أمانة المدينة"
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "7") && (
+                      <img
+                        src={logo7}
+                        className=" "
+                        alt="أمانة الاحساء"
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "8") && (
+                      <img
+                        src={logo8}
+                        className=" "
+                        alt="أمانة تبوك"
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "9") && (
+                      <img
+                        src={logo9}
+                        className=" "
+                        alt="أمانة الباحة"
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "10") && (
+                      <img
+                        src={logo10}
+                        className=" "
+                        alt="أمانة منطقة جازان"
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "11") && (
+                      <img
+                        src={logo11}
+                        className=" "
+                        alt="أمانة منطقة عسير"
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "12") && (
+                      <img
+                        src={logo12}
+                        alt="أمانة منطقه الحدود الشماليه"
+                        className=""
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "13") && (
+                      <img
+                        src={logo13}
+                        alt="امانه نجران"
+                        className=""
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "14") && (
+                      <img
+                        src={logo14}
+                        alt="امانه منطقه القصيم"
+                        className=""
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "15") && (
+                      <img
+                        src={logo15}
+                        alt="امانه الجوف"
+                        className=""
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "16") && (
+                      <img
+                        src={logo16}
+                        alt="أمانة الطائف"
+                        className=""
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "17") && (
+                      <img
+                        src={logo17}
+                        alt="امانه منطقه حائل"
+                        className=""
+                        style={{ width: "100px", height: "100px" }}
+                      />
+                    )}
+                    {data.insurance.some((ins: any) => ins.id === "18") && (
+                      <img
+                        src={logo18}
+                        alt="أمانة منطقه حفر الباطن"
+                        className=""
                         style={{ width: "100px", height: "100px" }}
                       />
                     )}

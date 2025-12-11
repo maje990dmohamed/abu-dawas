@@ -51,6 +51,7 @@ const useViewHealthInsurance = () => {
 
       if (!querySnapshot.empty) {
         const docData = querySnapshot.docs[0].data() as any;
+        console.log("docData:", docData);
 
         setFormData({
           ...docData,
@@ -85,6 +86,7 @@ const useViewHealthInsurance = () => {
       const pxHeight = canvas.height;
       const mmWidth = (pxWidth * 25.4) / 96;
       const mmHeight = (pxHeight * 25.4) / 96;
+      console.log("imgData:", imgData);
 
       return {
         imgData,
@@ -100,6 +102,7 @@ const useViewHealthInsurance = () => {
       unit: "mm",
       format: [first.width, first.height],
     });
+
     pdf.addImage(first.imgData, "PNG", 0, 0, first.width, first.height);
     pdf.addPage([second.width, second.height]);
     pdf.addImage(second.imgData, "PNG", 0, 0, second.width, second.height);
