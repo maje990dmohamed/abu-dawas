@@ -72,11 +72,13 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
           <div className=" flex items-center gap-1 z-10">
             <div className=" flex items-center gap-1">
               <img
+                title="milt"
                 src={milt}
                 style={{ width: "100px", height: "100px" }}
                 className=" border-l border-gray-300 pl-1"
               />
               <img
+                title="baladya"
                 src={baladya}
                 style={{ width: "90px", height: "100px" }}
                 className={` ${
