@@ -257,7 +257,7 @@ function CustomAutocomplete<Value>(
         </div>
       </div>
       {groupedOptions?.length > 0 ? (
-        <Listbox {...getListboxProps()} className="w-[102%]">
+        <Listbox {...getListboxProps()} className="w-full">
           {groupedOptions.map((option: any, index) => {
             const { key, ...optionProps } = getOptionProps({ option, index });
             return (
