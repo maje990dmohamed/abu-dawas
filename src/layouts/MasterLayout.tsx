@@ -1,25 +1,25 @@
-import { LogOut, Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import logo from '../assets/icons/Abu_Dawas.png';
-import LogoutDialog from '../components/dialog/LogoutDialog';
-import { Sidebar } from '../components/navigation/Sidebar';
-import { useAuth } from '../hooks/useAuth';
+import { LogOut, Menu, X } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/icons/Abu_Dawas.png";
+import LogoutDialog from "../components/dialog/LogoutDialog";
+import { Sidebar } from "../components/navigation/Sidebar";
+import { useAuth } from "../hooks/useAuth";
 
 export const MasterLayout = ({ children }: any) => {
-  const [logoutDialog, setLogoutDialog] = useState(false)
+  const [logoutDialog, setLogoutDialog] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { logout }: any = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
-    navigate('/login', { replace: true });
+    navigate("/login", { replace: true });
   };
 
   const openLogoutDialog = () => {
-    setLogoutDialog(true)
-  }
+    setLogoutDialog(true);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -31,12 +31,22 @@ export const MasterLayout = ({ children }: any) => {
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="p-2 rounded-md text-gray-600  cursor-pointer hover:text-gray-900 hover:bg-gray-100 transition-colors"
             >
-              {sidebarOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {sidebarOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
             <h1 className="text-xl font-semibold text-gray-800">لوحة التحكم</h1>
-            <img src={logo} style={{
-              width: "40px", height: "40px",
-            }} alt="" className=' rounded-full border border-gray-300' />
+            <img
+              src={logo}
+              style={{
+                width: "40px",
+                height: "40px",
+              }}
+              alt=""
+              className=" rounded-full border border-gray-300"
+            />
           </div>
 
           <div className="flex items-center  space-x-4">
