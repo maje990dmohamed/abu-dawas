@@ -1,32 +1,32 @@
 import { FaFlag, FaSave } from "react-icons/fa";
 import { GrCertificate, GrUserWorker } from "react-icons/gr";
-import { HiIdentification } from "react-icons/hi2";
 import { IoPerson } from "react-icons/io5";
-import ImageInput from "../../../components/common/inputs/ImageInput";
-import InputWithIcon from "../../../components/common/inputs/InputWithIcon";
-import PageHeader from "../../../components/common/PageHeader";
-import ViewLayout from "../../../components/common/ViewLayout";
-import Button from "../../../components/common/Button";
-import useEditHealthInsurance from "../hooks/useEditHealthInsurance";
-import { CgGenderMale } from "react-icons/cg";
-import SelectMenu from "../../../components/common/inputs/SelectMenu";
-import { MdDateRange } from "react-icons/md";
-import MultiSelectMenu from "../../../components/inputs/MutilSelectMenu/MultiSelectMenu";
+import { HiIdentification } from "react-icons/hi2";
 
-const EditHealthInsurance = () => {
+import { CgGenderMale } from "react-icons/cg";
+import { MdDateRange } from "react-icons/md";
+import PageHeader from "../../components/common/PageHeader";
+import ViewLayout from "../../components/common/ViewLayout";
+import InputWithIcon from "../../components/common/inputs/InputWithIcon";
+import ImageInput from "../../components/common/inputs/ImageInput";
+import SelectMenu from "../../components/common/inputs/SelectMenu";
+import Button from "../../components/common/Button";
+import MultiSelectMenu from "../../components/inputs/MutilSelectMenu/MultiSelectMenu";
+import useAddHealthInsuranceSecondery from "./hooks/useAddHealthInsuranceSecondery";
+const AddHealthInsuranceSecondry = () => {
   const {
     formData,
     handleFieldChange,
     submitting,
-    errors,
     insurances,
+    errors,
     handleSubmit,
     genderOptions,
-  } = useEditHealthInsurance();
+  } = useAddHealthInsuranceSecondery();
 
   return (
-    <div className="space-y-6">
-      <PageHeader title="تعدبل تأمين" />
+    <div className="space-y-6 pb-52">
+      <PageHeader title="اضافة شهادة صحية" />
       <ViewLayout>
         <form onSubmit={handleSubmit} className=" flex flex-col gap-5">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-[24px] justify-center items-center">
@@ -96,7 +96,7 @@ const EditHealthInsurance = () => {
               onChange={(e: any) =>
                 handleFieldChange("FirmLicenseNum", e?.target?.value)
               }
-              value={formData?.FirmLicenseNum}
+              value={formData?.FirmLicenseNum ?? ""}
               label="رقم الرخصة"
             />
           </div>
@@ -233,19 +233,12 @@ const EditHealthInsurance = () => {
             disabled={false}
             label="اختر الأمانات"
             name="insurance"
-            onChange={(e: any) => {
-              console.log("event", e);
-              handleFieldChange("insurance", e);
-            }}
-            handleParentsChange={(e: any) => {
-              console.log("event", e);
-              handleFieldChange("insurance", e);
-            }}
+            onChange={(e: any) => handleFieldChange("insurance", e)}
+            handleParentsChange={(e: any) => handleFieldChange("insurance", e)}
             options={insurances}
             value2={insurances}
             value={formData?.insurance}
-            formData={formData}
-            isSearch={true}
+            isSearch
           />
 
           <Button loading={submitting} type="submit" className="mt-5">
@@ -258,4 +251,4 @@ const EditHealthInsurance = () => {
   );
 };
 
-export default EditHealthInsurance;
+export default AddHealthInsuranceSecondry;

@@ -1,17 +1,17 @@
-import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
-import { useState } from "react";
-import { useNavigate } from "react-router";
-import { toast } from "react-toastify";
-import { db } from "../../../firebase";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { isPhotoFile } from "../../../lib/helpers";
 import type {
   EditedPersonType,
   healthInsuranceType,
 } from "../../../types/types";
-import { addHealthInsuranceSchema } from "../validate/addSchema";
+import { toast } from "react-toastify";
 import useInsurances from "../../../hooks/useInsurances";
+import { useState } from "react";
+import { addHealthInsuranceSchema } from "../../healthInsurance/validate/addSchema";
+import { useNavigate } from "react-router";
+import { db } from "../../../firebase";
 
-const useAddHealthInsurance = () => {
+const useAddHealthInsuranceSecondery = () => {
   const [submitting, setSubmitting] = useState(false);
 
   const [formData, setFormData] = useState<healthInsuranceType>({
@@ -116,7 +116,7 @@ const useAddHealthInsurance = () => {
       const latestPayload = { ...payload };
 
       if (isPhotoFile(formData.photoUrl)) {
-        const collRef = collection(db, "healthCertificates");
+        const collRef = collection(db, "healthCertificatesSecondery");
         const q = query(collRef, where("idNumber", "==", payload.idNumber));
         const querySnapshot = await getDocs(q);
 
@@ -134,6 +134,9 @@ const useAddHealthInsurance = () => {
         toast.error("يرجى إضافة صورة صحيحة");
       }
     } catch (error) {
+      console.log("error:", error);
+      toast.error("حجم الصورة كبير للغاية");
+
       toast.error("حدث خطأ ما !");
       return error;
     }
@@ -152,4 +155,4 @@ const useAddHealthInsurance = () => {
   };
 };
 
-export default useAddHealthInsurance;
+export default useAddHealthInsuranceSecondery;

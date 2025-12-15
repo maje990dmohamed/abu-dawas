@@ -2,18 +2,18 @@ import { FaFlag, FaSave } from "react-icons/fa";
 import { GrCertificate, GrUserWorker } from "react-icons/gr";
 import { HiIdentification } from "react-icons/hi2";
 import { IoPerson } from "react-icons/io5";
-import ImageInput from "../../../components/common/inputs/ImageInput";
-import InputWithIcon from "../../../components/common/inputs/InputWithIcon";
-import PageHeader from "../../../components/common/PageHeader";
-import ViewLayout from "../../../components/common/ViewLayout";
-import Button from "../../../components/common/Button";
-import useEditHealthInsurance from "../hooks/useEditHealthInsurance";
-import { CgGenderMale } from "react-icons/cg";
-import SelectMenu from "../../../components/common/inputs/SelectMenu";
-import { MdDateRange } from "react-icons/md";
-import MultiSelectMenu from "../../../components/inputs/MutilSelectMenu/MultiSelectMenu";
 
-const EditHealthInsurance = () => {
+import { CgGenderMale } from "react-icons/cg";
+import { MdDateRange } from "react-icons/md";
+import useEditHealthInsuranceSecondery from "./hooks/useEditHealthInsuranceSecondery";
+import PageHeader from "../../components/common/PageHeader";
+import ViewLayout from "../../components/common/ViewLayout";
+import InputWithIcon from "../../components/common/inputs/InputWithIcon";
+import ImageInput from "../../components/common/inputs/ImageInput";
+import SelectMenu from "../../components/common/inputs/SelectMenu";
+import MultiSelectMenu from "../../components/inputs/MutilSelectMenu/MultiSelectMenu";
+import Button from "../../components/common/Button";
+const EditHealthInsuranceSecondery = () => {
   const {
     formData,
     handleFieldChange,
@@ -22,11 +22,11 @@ const EditHealthInsurance = () => {
     insurances,
     handleSubmit,
     genderOptions,
-  } = useEditHealthInsurance();
+  } = useEditHealthInsuranceSecondery();
 
   return (
     <div className="space-y-6">
-      <PageHeader title="تعدبل تأمين" />
+      <PageHeader title="تعدبل الشهادة" />
       <ViewLayout>
         <form onSubmit={handleSubmit} className=" flex flex-col gap-5">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-[24px] justify-center items-center">
@@ -258,4 +258,4 @@ const EditHealthInsurance = () => {
   );
 };
 
-export default EditHealthInsurance;
+export default EditHealthInsuranceSecondery;

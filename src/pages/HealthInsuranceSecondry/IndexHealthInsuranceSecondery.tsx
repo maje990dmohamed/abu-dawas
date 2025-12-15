@@ -1,15 +1,15 @@
-import { useEffect, useMemo } from "react";
 import { ToastContainer } from "react-toastify";
-import PageHeader from "../../../components/common/PageHeader";
-import { useNavigate, useSearchParams } from "react-router";
+import Table from "../../components/Table/table";
 import { IoAdd } from "react-icons/io5";
-import Table from "../../../components/Table/table";
-import useIndexHealthInsurance from "../hooks/useIndexHealthInsurance";
-import Link from "../../../components/common/Link";
+import { useNavigate, useSearchParams } from "react-router";
+import PageHeader from "../../components/common/PageHeader";
+import { useEffect, useMemo } from "react";
+import useIndexHealthInsuranceSecondery from "./hooks/useHealthInsuranceSecondery";
+import Link from "../../components/common/Link";
 
-const IndexHealthInsurance = () => {
+const IndexHealthInsuranceSecondry = () => {
   const { getAllCertificates, data, loading, setData } =
-    useIndexHealthInsurance();
+    useIndexHealthInsuranceSecondery();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -19,10 +19,10 @@ const IndexHealthInsurance = () => {
   const itemsPerPage = parseInt(searchParams.get("per_page") || "10", 10);
 
   const handleView = (item: any) => {
-    navigate(`/view-health-insurance/${item.idNumber}`);
+    navigate(`/view-health-insurance-secondery/${item.idNumber}`);
   };
   const handleEdit = (item: any) => {
-    navigate(`/edit-health-insurance/${item.idNumber}`);
+    navigate(`/edit-health-insurance-secondery/${item.idNumber}`);
   };
 
   useEffect(() => {
@@ -97,16 +97,16 @@ const IndexHealthInsurance = () => {
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <PageHeader
-              title="التأمين الصحي"
+              title="الشهادة الصحية الثانوية"
               className=" !w-fit"
               isBackButton={false}
             />
             <Link
               className="px-5 py-2 rounded-[8px]  w-fit flex items-center gap-1 ms-auto "
-              to="/add-new-health-insurance"
+              to="/add-health-insurance-secondery"
             >
               <IoAdd className=" font-bold text-xl" />
-              اضافة تأمين صحي
+              اضافة شهادة الصحية الثانوية
             </Link>
           </div>
 
@@ -157,13 +157,13 @@ const IndexHealthInsurance = () => {
               totalPages={totalPages}
               isEdit
               isDelete
-              deleteTitle={"حذف كارت التأمين"}
-              deleteSubTitle={"هل أنت متأكد من حذف هذاالكارت؟"}
+              deleteTitle={"حذف كارت الشهادة"}
+              deleteSubTitle={"هل أنت متأكد من حذف هذه الشهادة؟"}
               deleteTitleAfterAccept={"تم الحذف بنجاح"}
               onEdit={handleEdit}
               onView={handleView}
               filterDeletedData={filterDeletedData}
-              collectionName={"healthCertificates"}
+              collectionName={"healthCertificatesSecondery"}
             />
           </div>
         </div>
@@ -185,4 +185,4 @@ const IndexHealthInsurance = () => {
   );
 };
 
-export default IndexHealthInsurance;
+export default IndexHealthInsuranceSecondry;

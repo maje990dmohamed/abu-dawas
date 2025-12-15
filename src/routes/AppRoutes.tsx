@@ -1,15 +1,19 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { AuthLayout } from '../layouts/AuthLayout';
-import { LoginPage } from '../pages/auth/LoginPage';
-import { Dashboard } from '../pages/dashboard/Dashbaord';
-import { AddNewPerson } from '../pages/dashboard/Persons/pages/AddNewPerson';
-import EditPerson from '../pages/dashboard/Persons/pages/EditPerson';
-import ViewPerson from '../pages/dashboard/Persons/pages/ViewPerson';
-import AddHealthInsurance from '../pages/healthInsurance/pages/AddHealthInsurance';
-import EditHealthInsurance from '../pages/healthInsurance/pages/EditHealthInsurance';
-import IndexHealthInsurance from '../pages/healthInsurance/pages/IndexHealthInsurance';
-import ViewHealthInsurance from '../pages/healthInsurance/pages/ViewHealthInsurance';
-import { ProtectedRoute } from './ProtectedRoute';
+import { Navigate, Route, Routes } from "react-router-dom";
+import { AuthLayout } from "../layouts/AuthLayout";
+import { LoginPage } from "../pages/auth/LoginPage";
+import { Dashboard } from "../pages/dashboard/Dashbaord";
+import { AddNewPerson } from "../pages/dashboard/Persons/pages/AddNewPerson";
+import EditPerson from "../pages/dashboard/Persons/pages/EditPerson";
+import ViewPerson from "../pages/dashboard/Persons/pages/ViewPerson";
+import AddHealthInsurance from "../pages/healthInsurance/pages/AddHealthInsurance";
+import EditHealthInsurance from "../pages/healthInsurance/pages/EditHealthInsurance";
+import IndexHealthInsurance from "../pages/healthInsurance/pages/IndexHealthInsurance";
+import ViewHealthInsurance from "../pages/healthInsurance/pages/ViewHealthInsurance";
+import { ProtectedRoute } from "./ProtectedRoute";
+import IndexHealthInsuranceSecondry from "../pages/HealthInsuranceSecondry/IndexHealthInsuranceSecondery";
+import ViewHealthInsuranceSecondery from "../pages/HealthInsuranceSecondry/ViewHealthInsuranceSecondery";
+import EditHealthInsuranceSecondery from "../pages/HealthInsuranceSecondry/EditHealthInsuranceSecondery";
+import AddHealthInsuranceSecondry from "../pages/HealthInsuranceSecondry/AddHealthInsuranceSecondery";
 
 export const AppRoutes = () => {
   return (
@@ -58,7 +62,7 @@ export const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-      
+
       <Route
         path="/edit-health-insurance/:idNumber"
         element={
@@ -72,6 +76,38 @@ export const AppRoutes = () => {
         element={
           <ProtectedRoute>
             <ViewHealthInsurance />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/health-insurance-secondry"
+        element={
+          <ProtectedRoute>
+            <IndexHealthInsuranceSecondry />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/view-health-insurance-secondery/:idNumber"
+        element={
+          <ProtectedRoute>
+            <ViewHealthInsuranceSecondery />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/edit-health-insurance-secondery/:idNumber"
+        element={
+          <ProtectedRoute>
+            <EditHealthInsuranceSecondery />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/add-health-insurance-secondery"
+        element={
+          <ProtectedRoute>
+            <AddHealthInsuranceSecondry />
           </ProtectedRoute>
         }
       />
@@ -102,7 +138,6 @@ export const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-      
 
       {/* التوجيه الافتراضي */}
       <Route path="/" element={<Navigate to="/dashboard" replace />} />

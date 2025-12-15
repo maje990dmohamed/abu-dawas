@@ -2,11 +2,11 @@ import { collection, getDocs } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../../firebase";
 
-const useIndexHealthInsurance = () => {
+const useIndexHealthInsuranceSecondery = () => {
   const [data, setData]: any = useState([]);
   const [loading, setLoading]: any = useState(true);
 
-  const personsCollectionRef = collection(db, "healthCertificates");
+  const personsCollectionRef = collection(db, "healthCertificatesSecondery");
 
   const getAllCertificates = async () => {
     try {
@@ -28,4 +28,4 @@ const useIndexHealthInsurance = () => {
   return { getAllCertificates, loading, data, setData };
 };
 
-export default useIndexHealthInsurance;
+export default useIndexHealthInsuranceSecondery;

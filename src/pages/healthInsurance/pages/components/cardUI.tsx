@@ -68,7 +68,6 @@ const CardUI = forwardRef<HTMLDivElement, any>(({ data }: any, ref: any) => {
             alignItems: "center",
           }}
         >
-          {/* الشعارات على اليمين */}
           <div className=" flex items-center gap-1 z-10">
             <div className=" flex items-center gap-1">
               <img
