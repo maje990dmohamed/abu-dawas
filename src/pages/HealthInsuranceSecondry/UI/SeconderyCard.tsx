@@ -599,7 +599,7 @@ const SeconderyCard = forwardRef<HTMLDivElement, any>(
                       }}
                     >
                       <QRCode
-                        value={`https://abudawaswebsitescanqecodewebview.vercel.app/viewSpecificInsuranceProtected/${data.idNumber}`}
+                        value={`abu-dawas-website-scan-qecode.vercel.app/viewSpecificInsuranceProtected/${data.idNumber}`}
                         size={125}
                         level={"H"}
                       />

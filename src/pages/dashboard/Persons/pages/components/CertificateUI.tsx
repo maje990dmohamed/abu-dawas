@@ -67,7 +67,7 @@ const CertificateUI = forwardRef<HTMLDivElement, CertificateUIProps>(
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
               <QRCode
-                value={`https://abudawaswebsitescanqecodewebview.vercel.app/viewSpecificCertificateProtected/${data.idNumber}`}
+                value={`abu-dawas-website-scan-qecode.vercel.app/viewSpecificCertificateProtected/${data.idNumber}`}
                 size={220}
                 level={"H"}
               />
