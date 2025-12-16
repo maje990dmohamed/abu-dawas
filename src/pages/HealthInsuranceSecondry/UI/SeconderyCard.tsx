@@ -532,7 +532,7 @@ const SeconderyCard = forwardRef<HTMLDivElement, any>(
                       borderRadius: "0",
                       padding: "5px",
                       fontSize: "16px",
-                      // fontFamily: 'Cairo, Ariald',
+                      // fontFamily: 'Cairo, Arialdh',
                       color: "black",
                       fontWeight: "600",
                     }}
